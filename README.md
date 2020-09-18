@@ -1,3 +1,3 @@
 # Node express with typescript
 
-Atividade desenvolvida durante o curso Devboost.
+Atividade desenvolvida durante o curso Devboost
