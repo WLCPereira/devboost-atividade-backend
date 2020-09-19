@@ -24,7 +24,7 @@ app.get("/hotels", async (req, res) => {
 app.post("/hotels", async (req, res) => {
     const connection = await typeorm_1.createConnection();
     const hotelRepository = connection.getRepository(Hotels_1.default);
-    const hotel = new Hotels_1.default(IHotels); // nao entendi esta passando a interface?
+    const hotel = new Hotels_1.default(); // nao entendi esta passando a interface? Sim, era a intenção
     await hotelRepository.save(hotel); // &user.id = 1
     connection.close();
     return res.json({

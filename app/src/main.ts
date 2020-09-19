@@ -32,7 +32,7 @@ app.post("/hotels", async (req: Request, res: Response): Promise<Response> => {
 
     const hotelRepository: Repository<Hotel> = connection.getRepository(Hotel);
 
-    const hotel: Hotel = new Hotel(IHotels);// nao entendi esta passando a interface?
+    const hotel: Hotel = new Hotel(<IHotels>);// nao entendi esta passando a interface? Sim, era a intenção
 
     await hotelRepository.save(hotel); // &user.id = 1
 
