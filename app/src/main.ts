@@ -1,8 +1,13 @@
 import 'reflect-metadata';
 import express, { Application } from 'express';
-import { getHotels, postHotels } from './controllers/Hotels';
-import { getRooms, postRooms } from './controllers/Rooms';
-import { getReservations, postReservations } from './controllers/Reservations';
+import {
+  getHotels,
+  postHotels,
+  getRooms,
+  postRooms,
+  getReservations,
+  postReservations,
+} from './controllers';
 
 //routes
 
