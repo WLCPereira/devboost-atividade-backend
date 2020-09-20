@@ -10,4 +10,4 @@ RUN npm i -g nodemon
 
 CMD rm -rf /app/app/dist && sh -c "nodemon dist/main.js & tsc -w"
 
-EXPOSE 5000
+EXPOSE 2000

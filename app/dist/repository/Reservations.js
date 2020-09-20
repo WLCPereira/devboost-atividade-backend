@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const Rooms_1 = __importDefault(require("./Rooms"));
 // Entidade representa uma tables no DB
-let Reservations = class Reservations {
-    constructor({ checkIn, checkOut, createdAt }) {
+let Reservation = class Reservation {
+    constructor(checkIn, checkOut, createdAt) {
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.createdAt = createdAt;
@@ -25,25 +25,25 @@ let Reservations = class Reservations {
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Reservations.prototype, "id", void 0);
+], Reservation.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column({ type: 'datetime' }),
     __metadata("design:type", Date)
-], Reservations.prototype, "checkIn", void 0);
+], Reservation.prototype, "checkIn", void 0);
 __decorate([
     typeorm_1.Column({ type: 'datetime' }),
     __metadata("design:type", Date)
-], Reservations.prototype, "checkOut", void 0);
+], Reservation.prototype, "checkOut", void 0);
 __decorate([
     typeorm_1.Column({ type: 'datetime' }),
     __metadata("design:type", Date)
-], Reservations.prototype, "createdAt", void 0);
+], Reservation.prototype, "createdAt", void 0);
 __decorate([
-    typeorm_1.ManyToOne((type) => Rooms_1.default, (room) => room.id),
-    __metadata("design:type", Array)
-], Reservations.prototype, "room", void 0);
-Reservations = __decorate([
+    typeorm_1.ManyToOne((type) => Rooms_1.default, (room) => room.reservations),
+    __metadata("design:type", Rooms_1.default)
+], Reservation.prototype, "room", void 0);
+Reservation = __decorate([
     typeorm_1.Entity('reservations'),
-    __metadata("design:paramtypes", [Object])
-], Reservations);
-exports.default = Reservations;
+    __metadata("design:paramtypes", [Date, Date, Date])
+], Reservation);
+exports.default = Reservation;

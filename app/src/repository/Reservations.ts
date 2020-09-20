@@ -1,9 +1,8 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { IReservations } from './interfaces';
-import Rooms from './Rooms';
+import Room from './Rooms';
 // Entidade representa uma tables no DB
 @Entity('reservations')
-export default class Reservations {
+export default class Reservation {
   // chave primaria auto incremental
   @PrimaryGeneratedColumn()
   id: number;
@@ -17,10 +16,10 @@ export default class Reservations {
   @Column({ type: 'datetime' })
   createdAt: Date;
 
-  @ManyToOne((type) => Rooms, (room) => room.id)
-  room: Rooms[];
+  @ManyToOne((type) => Room, (room) => room.reservations)
+  room: Room;
 
-  constructor({ checkIn, checkOut, createdAt }: IReservations) {
+  constructor(checkIn: Date, checkOut: Date, createdAt: Date) {
     this.checkIn = checkIn;
     this.checkOut = checkOut;
     this.createdAt = createdAt;

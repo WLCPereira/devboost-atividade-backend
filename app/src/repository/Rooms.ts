@@ -6,9 +6,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { IRooms } from './interfaces';
 import Hotel from './Hotels';
-import Reservations from './Reservations';
+import Reservation from './Reservations';
 
 @Entity('rooms')
 export default class Rooms {
@@ -24,10 +23,10 @@ export default class Rooms {
   @ManyToOne((type) => Hotel, (hotel) => hotel.rooms)
   hotel: Hotel;
 
-  @OneToMany((type) => Reservations, (reservation) => reservation.id)
-  reservation: Reservations[];
+  @OneToMany((type) => Reservation, (reservations) => reservations.room)
+  reservations: Reservation[];
 
-  constructor({ numero, tamanho }: IRooms) {
+  constructor(numero: number, tamanho: string) {
     this.numero = numero;
     this.tamanho = tamanho;
   }

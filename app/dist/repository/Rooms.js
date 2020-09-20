@@ -16,7 +16,7 @@ const typeorm_1 = require("typeorm");
 const Hotels_1 = __importDefault(require("./Hotels"));
 const Reservations_1 = __importDefault(require("./Reservations"));
 let Rooms = class Rooms {
-    constructor({ numero, tamanho }) {
+    constructor(numero, tamanho) {
         this.numero = numero;
         this.tamanho = tamanho;
     }
@@ -38,11 +38,11 @@ __decorate([
     __metadata("design:type", Hotels_1.default)
 ], Rooms.prototype, "hotel", void 0);
 __decorate([
-    typeorm_1.OneToMany((type) => Reservations_1.default, (reservation) => reservation.id),
+    typeorm_1.OneToMany((type) => Reservations_1.default, (reservations) => reservations.room),
     __metadata("design:type", Array)
-], Rooms.prototype, "reservation", void 0);
+], Rooms.prototype, "reservations", void 0);
 Rooms = __decorate([
     typeorm_1.Entity('rooms'),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:paramtypes", [Number, String])
 ], Rooms);
 exports.default = Rooms;

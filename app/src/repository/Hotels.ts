@@ -2,7 +2,6 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { IHotels } from './interfaces';
 import Rooms from './Rooms';
 
-
 @Entity('Hotel')
 export default class Hotels {
   @PrimaryGeneratedColumn()
@@ -26,10 +25,17 @@ export default class Hotels {
   @Column()
   foto: string;
 
-  @OneToMany((type) => Rooms, (rooms) => rooms.hotel)
+  @OneToMany((type) => Rooms, (room) => room.hotel)
   rooms: Rooms[];
 
-  constructor({ nome, descricao, endereco, cidade, estrelas, foto }: IHotels) {
+  constructor(
+    nome: string,
+    descricao: string,
+    endereco: string,
+    cidade: string,
+    estrelas: number,
+    foto: string
+  ) {
     this.nome = nome;
     this.descricao = descricao;
     this.endereco = endereco;

@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const Rooms_1 = __importDefault(require("./Rooms"));
 let Hotels = class Hotels {
-    constructor({ nome, descricao, endereco, cidade, estrelas, foto }) {
+    constructor(nome, descricao, endereco, cidade, estrelas, foto) {
         this.nome = nome;
         this.descricao = descricao;
         this.endereco = endereco;
@@ -53,11 +53,11 @@ __decorate([
     __metadata("design:type", String)
 ], Hotels.prototype, "foto", void 0);
 __decorate([
-    typeorm_1.OneToMany((type) => Rooms_1.default, (rooms) => rooms.hotel),
+    typeorm_1.OneToMany((type) => Rooms_1.default, (room) => room.hotel),
     __metadata("design:type", Array)
 ], Hotels.prototype, "rooms", void 0);
 Hotels = __decorate([
     typeorm_1.Entity('Hotel'),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:paramtypes", [String, String, String, String, Number, String])
 ], Hotels);
 exports.default = Hotels;
